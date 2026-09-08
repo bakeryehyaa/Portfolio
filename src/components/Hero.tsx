@@ -1,89 +1,106 @@
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, FileText, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-grid opacity-40" />
-      <div className="absolute inset-0 bg-noise" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-500" />
-      
-      <div className="container relative z-10 px-6">
+      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-noise pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-500 pointer-events-none" />
+
+      <div className="container relative z-10 px-6 py-12">
         <div className="max-w-4xl mx-auto text-center">
           {/* Status badge */}
           <div className="animate-fade-up opacity-0">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-sm font-mono text-primary mb-8">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Available for projects
+              Available for Opportunities & Projects
             </span>
           </div>
-          
+
           {/* Main heading */}
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-up opacity-0 delay-100">
-            Mohamad Baker
+            MohamadBaker
             <br />
             <span className="text-gradient">Yehya</span>
           </h1>
-          
-          {/* Subheading */}
-          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-up opacity-0 delay-200">
-            Full Stack Developer building end-to-end web and mobile applications integrated with machine learning and AI-driven features. Skilled in scalable backends, modern frontends, and deploying AI models.
+
+          {/* Subheading / Bio from CV */}
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-up opacity-0 delay-200">
+            <span className="text-foreground font-medium">AI & Software Engineer</span> passionate about building intelligent automation tools. Specializes in integrating local large language models, computer vision, and machine learning pipelines into scalable modern web and mobile applications.
           </p>
-          
+
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 animate-fade-up opacity-0 delay-300">
-            <Button 
-              size="lg" 
-              className="glow-primary font-medium px-8"
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-10 animate-fade-up opacity-0 delay-300">
+            <Button
+              size="lg"
+              className="glow-primary font-medium px-7 bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             >
               View Projects
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="font-medium px-8"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+
+            <a
+              href="./MohamadBaker-Yehya-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary/40 hover:border-primary hover:bg-primary/10 font-medium px-6 gap-2 cursor-pointer"
+              >
+                <FileText className="w-4 h-4 text-primary" />
+                <span>View Resume</span>
+              </Button>
+            </a>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="font-medium px-7 hover:border-accent/50 cursor-pointer"
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               Get in Touch
             </Button>
           </div>
-          
+
           {/* Social links */}
           <div className="flex items-center justify-center gap-4 mt-12 animate-fade-up opacity-0 delay-400">
-            <a 
-              href="https://github.com/bakeryehyaa" 
-              target="_blank" 
+            <a
+              href="https://github.com/bakeryehyaa"
+              target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+              aria-label="GitHub Profile"
+              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-foreground transition-all duration-300"
             >
               <Github className="w-5 h-5" />
             </a>
-            <a 
-              href="https://linkedin.com/in/bakeryehya" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/bakeryehya"
+              target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+              aria-label="LinkedIn Profile"
+              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-foreground transition-all duration-300"
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a 
+            <a
               href="mailto:mohamadbakeryehya@gmail.com"
-              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+              aria-label="Send Email"
+              className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 text-muted-foreground hover:text-foreground transition-all duration-300"
             >
               <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>
-        
+
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in opacity-0 delay-500">
-          <div className="flex flex-col items-center gap-2 text-muted-foreground">
-            <span className="text-xs font-mono">Scroll</span>
-            <ArrowDown className="w-4 h-4 animate-bounce" />
-          </div>
+        <div className="mt-16 flex flex-col items-center gap-2 text-muted-foreground animate-fade-in opacity-0 delay-500">
+          <span className="text-xs font-mono">Scroll Down</span>
+          <ArrowDown className="w-4 h-4 animate-bounce text-primary" />
         </div>
       </div>
     </section>
